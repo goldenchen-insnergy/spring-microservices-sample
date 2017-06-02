@@ -1,0 +1,27 @@
+server:
+  port: 1201
+
+management:
+  context-path: /admin
+  security:
+    enabled: false
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+spring:
+  profiles:
+    active: native
+
+basedir: target/config
