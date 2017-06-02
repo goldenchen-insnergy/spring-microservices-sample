@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ribbon
+
+server:
+  port: 7100
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
