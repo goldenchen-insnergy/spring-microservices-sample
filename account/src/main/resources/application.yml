@@ -1,0 +1,14 @@
+server:
+  port: 7000
+
+endpoints:
+  refresh:
+    enabled: true
+  restart:
+    enabled: true
+  actuator:
+    enabled: true
+
+management:
+  security:
+    enabled: false
