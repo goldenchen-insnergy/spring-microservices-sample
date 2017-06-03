@@ -1,0 +1,15 @@
+spring:
+  application:
+      name: webapp
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+server:
+  port: 1234
+
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
