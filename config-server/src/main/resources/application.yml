@@ -6,11 +6,6 @@ management:
   security:
     enabled: false
 
-logging:
-  level:
-    com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'DEBUG'
-
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
@@ -22,6 +17,32 @@ eureka:
 
 spring:
   profiles:
-    active: native
+    active: git
+  cloud:
+    config:
+      server:
+        native: # Classpath and file-based solution
+          search-locations: classpath:config/ribbon,
+                          classpath:config/inlight #file:config/inlight
+        db:
+          applications:
+            - application: inlight #name of application
+              table: app-default  #name of db table
+              profile: profile    #name of profile column
+              property: property  #name of property column
+              value: value        #name of value column
+            - application: ribbon
+              table: app-default
+              profile: profile
+              property: property
+              value: value
+        git: # Remote base solution
+          uri: https://github.com/goldenchen-insnergy/config-repo
 
-basedir: target/config
+  datasource:
+    url: jdbc:postgresql://xxx.xxx.xxx.xxx:xxxx/
+    username: xxxx
+    password: xxxx
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
